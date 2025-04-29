@@ -39,22 +39,44 @@ function getHumanChoice() {
 
 // getHumanChoice();
 
-const computerSelection = getComputerChoice();
-const humanSelection = getHumanChoice();
+//const computerSelection = getComputerChoice();
+//const humanSelection = getHumanChoice();
 
 function playRound(humanChoice, computerChoice) {
     if ( humanChoice === ROCK && computerChoice === SCISSORS || humanChoice === PAPER && computerChoice === ROCK || humanChoice === SCISSORS && computerChoice ===  PAPER) {
-        humanScore++
-        return alert(`You Win!, ${humanChoice} beats ${computerChoice} Your score is: ${humanScore}` );
-        } else if (humanChoice === ROCK && computerChoice === ROCK || humanChoice === PAPER && computerChoice === PAPER || humanChoice === SCISSORS && computerChoice ===  SCISSORS) {
-            alert('It\'s a draw! Try again! ');
+        //humanScore++
+        //return alert(`You Win!, ${humanChoice} beats ${computerChoice} Your score is: ${humanScore}` );
+        return 'Player wins';
+        } else if (humanChoice === computerChoice) {
+            alert('It\'s a tie! Try again! ');
         } else {
-        computerScore++    
-        return alert(`You Lose! ${computerChoice} beats ${humanChoice} The computer score is: ${computerScore}`)
+        //computerScore++    
+        //return alert(`You Lose! ${computerChoice} beats ${humanChoice} The computer score is: ${computerScore}`)
+        return 'Computer wins';
     }
 }
 
 
 //console.log(computerSelection);
 
-playRound(humanSelection, computerSelection );
+//playRound(humanSelection, computerSelection );
+
+function playGame() {
+    const computerSelection = getComputerChoice();
+    const humanSelection = getHumanChoice();
+    let result = playRound(humanSelection,computerSelection);
+
+    if (result === 'Player wins') {
+        humanScore++;
+    } else if (result === 'Computer wins') {
+        computerScore++
+    }
+
+    alert(`Score - Player: ${humanScore}, Computer: ${computerScore}`);
+}
+
+playGame();
+playGame();
+playGame();
+playGame();
+playGame();
